@@ -270,7 +270,7 @@ class Board:
             "RW2": Rook(7, 0, "white"),
             "BW1": Bishop(2, 0, "white"),
             "BW2": Bishop(5, 0, "white"),
-            "QW": Queen(3, 0, "white"),
+            "QW": Queen(4, 0, "white"),
             "PW1": WhitePawn(0, 1),
             "PW2": WhitePawn(1, 1),
             "PW3": WhitePawn(2, 1),
@@ -291,13 +291,13 @@ class Board:
             "RB2": Rook(7, 7, "black"),
             "BB1": Bishop(2, 7, "black"),
             "BB2": Bishop(5, 7, "black"),
-            "QB": Queen(3, 7, "black"),
+            "QB": Queen(4, 7, "black"),
             "NB1": Knigt(1, 7, "black"),
             "NB2": Knigt(6, 7, "black"),
             "NW1": Knigt(1, 0, "white"),
             "NW2": Knigt(6, 0, "black"),
-            "KW": King(4, 0, "white"),
-            "KB": King(4, 7, "black"),
+            "KW": King(3, 0, "white"),
+            "KB": King(3, 7, "black"),
         }
 
     def possible_moves(self, piece):
@@ -406,5 +406,12 @@ while running:
 
     for event in pygame.event.get():
         if event.type == pygame.MOUSEBUTTONDOWN:
-            mouse_position = pygame.mouse.get_pos()
-            for piece in Board.piece
+            mouse_position_x, mouse_position_y = pygame.mouse.get_pos()
+            for piece in Board.piece():
+                if (piece.x//square_size == mouse_position_x) and (piece.y//square_size == mouse_position_y):
+                    #afficher les possibles moves
+                if event.type == pygame.MOUSEBUTTONUP:
+                    mouse_position_x, mouse_position_y = pygame.mouse.get_pos()
+                    for piece in Board.piece():
+                        if not(piece.x//square_size == mouse_position_x) and not(piece.y//square_size == mouse_position_y):
+                            piece.x, piece.y = mouse_position_x//square_size, mouse_position_y//square_size
