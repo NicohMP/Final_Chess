@@ -340,18 +340,18 @@ GRID_COLOR2 = (245, 245, 220)
 
 
 dico_im_address = {
-    "PB": r"C:\Users\nhoubouyan\Desktop\cours\cours_info\chess\Chess_PB.png",
-    "PW": r"C:\Users\nhoubouyan\Desktop\cours\cours_info\chess\Chess_PW.png",
-    "NB": r"C:\Users\nhoubouyan\Desktop\cours\cours_info\chess\Chess_KnB.png",
-    "NW": r"C:\Users\nhoubouyan\Desktop\cours\cours_info\chess\Chess_KnW.png",
-    "BB": r"C:\Users\nhoubouyan\Desktop\cours\cours_info\chess\Chess_BB.png",
-    "BW": r"C:\Users\nhoubouyan\Desktop\cours\cours_info\chess\Chess_BW.png",
-    "RB": r"C:\Users\nhoubouyan\Desktop\cours\cours_info\chess\Chess_RB.png",
-    "RW": r"C:\Users\nhoubouyan\Desktop\cours\cours_info\chess\Chess_RW.png",
-    "QB": r"C:\Users\nhoubouyan\Desktop\cours\cours_info\chess\Chess_QB.png",
-    "QW": r"C:\Users\nhoubouyan\Desktop\cours\cours_info\chess\Chess_QW.png",
-    "KB": r"C:\Users\nhoubouyan\Desktop\cours\cours_info\chess\Chess_KB.png",
-    "KW": r"C:\Users\nhoubouyan\Desktop\cours\cours_info\chess\Chess_KW.png",
+    "PB": r"C:\Users\nhoubouyan\Desktop\cours\cours_info\Final_Chess\Chess_PB.png",
+    "PW": r"C:\Users\nhoubouyan\Desktop\cours\cours_info\Final_Chess\Chess_PW.png",
+    "NB": r"C:\Users\nhoubouyan\Desktop\cours\cours_info\Final_Chess\Chess_KnB.png",
+    "NW": r"C:\Users\nhoubouyan\Desktop\cours\cours_info\Final_Chess\Chess_KnW.png",
+    "BB": r"C:\Users\nhoubouyan\Desktop\cours\cours_info\Final_Chess\Chess_BB.png",
+    "BW": r"C:\Users\nhoubouyan\Desktop\cours\cours_info\Final_Chess\Chess_BW.png",
+    "RB": r"C:\Users\nhoubouyan\Desktop\cours\cours_info\Final_Chess\Chess_RB.png",
+    "RW": r"C:\Users\nhoubouyan\Desktop\cours\cours_info\Final_Chess\Chess_RW.png",
+    "QB": r"C:\Users\nhoubouyan\Desktop\cours\cours_info\Final_Chess\Chess_QB.png",
+    "QW": r"C:\Users\nhoubouyan\Desktop\cours\cours_info\Final_Chess\Chess_QW.png",
+    "KB": r"C:\Users\nhoubouyan\Desktop\cours\cours_info\Final_Chess\Chess_KB.png",
+    "KW": r"C:\Users\nhoubouyan\Desktop\cours\cours_info\Final_Chess\Chess_KW.png",
 }
 
 
