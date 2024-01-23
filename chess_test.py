@@ -403,3 +403,8 @@ while running:
     display_moves(PB1.possible_moves(board.pieces))
 
     pygame.display.flip()
+
+    for event in pygame.event.get():
+        if event.type == pygame.MOUSEBUTTONDOWN:
+            mouse_position = pygame.mouse.get_pos()
+            for piece in Board.piece
