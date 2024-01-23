@@ -32,21 +32,21 @@ class Queen:
     def possible_moves(self, pieces):
         x, y = self.x + 1, self.y + 1
         possible_moves = []
-        while case_empty(x, y):
+        while case_empty(x, y, pieces):
             possible_moves.append([x, y])
             x += 1
             y += 1
         if ennemy_on_case(x, y, self.color, pieces):
             possible_moves.append((x, y))
         x, y = self.x + 1, self.y - 1
-        while case_empty(x, y):
+        while case_empty(x, y, pieces):
             possible_moves.append((x, y))
             x += 1
             y -= 1
         if ennemy_on_case(x, y, self.color, pieces):
             possible_moves.append((x, y))
         x, y = self.x - 1, self.y - 1
-        while case_empty(x, y):
+        while case_empty(x, y, pieces):
             possible_moves.append((x, y))
             x -= 1
             y -= 1
@@ -55,7 +55,7 @@ class Queen:
         if ennemy_on_case(x, y, self.color, pieces):
             possible_moves.append((x, y))
         x, y = self.x - 1, self.y + 1
-        while case_empty(x, y):
+        while case_empty(x, y, pieces):
             possible_moves.append((x, y))
             x -= 1
             y += 1
@@ -182,21 +182,21 @@ class Bishop:
     def possible_moves(self, pieces):
         x, y = self.x + 1, self.y + 1
         possible_moves = []
-        while case_empty(x, y):
+        while case_empty(x, y, pieces):
             possible_moves.append([x, y])
             x += 1
             y += 1
         if ennemy_on_case(x, y, self.color, pieces):
             possible_moves.append((x, y))
         x, y = self.x + 1, self.y - 1
-        while case_empty(x, y):
+        while case_empty(x, y, pieces):
             possible_moves.append((x, y))
             x += 1
             y -= 1
         if ennemy_on_case(x, y, self.color, pieces):
             possible_moves.append((x, y))
         x, y = self.x - 1, self.y - 1
-        while case_empty(x, y):
+        while case_empty(x, y, pieces):
             possible_moves.append((x, y))
             x -= 1
             y -= 1
@@ -205,7 +205,7 @@ class Bishop:
         if ennemy_on_case(x, y, self.color, pieces):
             possible_moves.append((x, y))
         x, y = self.x - 1, self.y + 1
-        while case_empty(x, y):
+        while case_empty(x, y, pieces):
             possible_moves.append((x, y))
             x -= 1
             y += 1
@@ -283,7 +283,7 @@ class Board:
             "PB2": BlackPawn(1, 6),
             "PB3": BlackPawn(2, 6),
             "PB4": BlackPawn(3, 6),
-            "PB5": BlackPawn(4, 6),
+            "PB5": BlackPawn(4, 5),
             "PB6": BlackPawn(5, 6),
             "PB7": BlackPawn(6, 6),
             "PB8": BlackPawn(7, 6),
@@ -377,12 +377,17 @@ def display_pieces(pieces):
 def display_moves(moves):
     for move in moves:
         x, y = move[0], move[1]
-        print(x, y)
-        res = pygame.Rect(
-            (x - 1) * square_size, (7 - (y - 1)) * square_size, square_size, square_size
+        pygame.draw.rect(
+            screen,
+            (0, 0, 255),
+            (
+                (x) * square_size,
+                (7 - (y)) * square_size,
+                square_size,
+                square_size,
+            ),
         )
-        pygame.draw.rect(screen, (0, 0, 255), res)
-        # screen.blit(screen, ((x - 1) * square_size, (7 - (y - 1)) * square_size))
+    pygame.display.update()
 
 
 PB1 = board.pieces["PB1"]
@@ -391,15 +396,18 @@ display_moves(PB1.possible_moves(board.pieces))
 
 
 running = True
+screen.fill(GRID_COLOR2)
+for i in range(0, table_size, square_size):
+    for j in range(i, table_size + i, 2 * square_size):
+        CASE = pygame.Rect(i, j % table_size, square_size, square_size)
+        pygame.draw.rect(screen, GRID_COLOR1, CASE)
 while running:
-    screen.fill(GRID_COLOR2)
-    for i in range(0, table_size, square_size):
-        for j in range(i, table_size + i, 2 * square_size):
-            CASE = pygame.Rect(i, j % table_size, square_size, square_size)
-            pygame.draw.rect(screen, GRID_COLOR1, CASE)
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            running = False
     display_pieces(board.pieces)
-    PB1 = board.pieces["PB1"]
-    # print(PB1.possible_moves(board.pieces))
-    display_moves(PB1.possible_moves(board.pieces))
-
+    BB2 = board.pieces["BB2"]
+    display_moves(BB2.possible_moves(board.pieces))
     pygame.display.flip()
+
+pygame.quit()
